@@ -199,56 +199,232 @@ Do while loop
 
 // /** ARRAYS */
 
-let item1 = 20;
-let item2 = 30;
-let item3 = 40;
-let item4 = 50;
-let item5 = 100;
+// let item1 = 20;
+// let item2 = 30;
+// let item3 = 40;
+// let item4 = 50;
+// let item5 = 100;
 
-let arr = [20, 30, 40, 50, 100, '', true];
+// let arr = [20, 30, 40, 50, 100, '', true];
 
-console.log(arr[0]);
+// console.log(arr[0]);
 
-arr.push(200);
-
-
-// SYNTAX OF A CALLBACK fUNCITON!!!!!!
-// arr.filter(() => {}) <-- this is a callback.
-
-let newArr = arr.filter((element) => { // iterates over element.
-    console.log(element); // prints out each element. (new line).
-}) //<- But will only return the elements that return true. COOL!
-
-console.log(newArr); // currently empty.
+// arr.push(200);
 
 
-let newArr2 = arr.filter((element) => {
-    return element > 50; // This is a truthy statement. So it will return when it happens.
-})
+// // SYNTAX OF A CALLBACK fUNCITON!!!!!!
+// // arr.filter(() => {}) <-- this is a callback.
 
-console.log(`newArr2: ${newArr2}`); // <- 100, 200
+// let newArr = arr.filter((element) => { // iterates over element.
+//     console.log(element); // prints out each element. (new line).
+// }) //<- But will only return the elements that return true. COOL!
 
-// if there's only one variable, you can remove the parens.
-let newArr3 = arr.filter(element => {
-    return element > 50;
-})
+// console.log(newArr); // currently empty.
 
 
+// let newArr2 = arr.filter((element) => {
+//     return element > 50; // This is a truthy statement. So it will return when it happens.
+// })
 
-/**
- * Filter out all the 'FAIL' elements in an array.
+// console.log(`newArr2: ${newArr2}`); // <- 100, 200
+
+// // if there's only one variable, you can remove the parens.
+// let newArr3 = arr.filter(element => {
+//     return element > 50;
+// })
+
+
+
+// /**
+//  * Filter out all the 'FAIL' elements in an array.
+//  * 
+//  * @examples
+//  * ['A+', 'FAIL', 'B', 'FAIL'] -> ['A+', 'B']
+//  * ['FAIL', 'FAIL', 'FAIL'] -> []
+//  */
+
+// let grades = ['A+', 'FAIL', 'B', 'FAIL'];
+
+// // let passingGrades = grades.filter(grade => {
+// //     return grade !== 'FAIL';
+// // }) <- only one line, so we can do this:
+
+// let passingGrades = grades.filter(grade => grade !== 'FAIL');
+
+// console.log(`passingGrades: ${passingGrades}`); // <- A+, B 
+
+
+// /**
+//  * Filter out all the 'FAIL' elements in an array.
+//  * Without using the Array.filter() method.
+//  * 
+//  * @examples
+//  * ['A+', 'FAIL', 'B', 'FAIL'] -> ['A+', 'B']
+//  * ['FAIL', 'FAIL', 'FAIL'] -> []
+//  * 
+//  */
+
+// let grades = ['A+', 'FAIL', 'B', 'FAIL'];
+
+// let filteredGrades = [];
+
+// for (let i = 0; i < grades.length; i++) {
+//     if (grades[i] !== 'FAIL') {
+//         filteredGrades.push(grades[i]);
+//     }
+// }
+// console.log(filteredGrades);
+
+// /** MAP!! */
+// let arr = [1, 4, 9, 16];
+
+// let newArr = arr.map((element) => { // This replaces each element with the returned value.
+//     console.log(element)
+//     return undefined; // This makes them all undefined. (return as everything)
+// })
+
+// let newArr2 = arr.map(element => undefined); //<- Same thing!! (minus the console.log)
+
+
+// /**
+//  * Turn each element in an array of dollars into cents
+//  * 
+//  * @examples
+//  * [1, 5, 10, 3] => [100, 500, 1000, 300]
+//  * [0, 10, 20] => [0, 1000, 2000]
+//  */
+
+// let dollars = [1, 5, 10, 3];
+
+// let cents = dollars.map(element => element * 100);
+
+// console.log(cents);
+
+// // OR
+
+// let arrCents = dollars.map((element) => {
+//     return element * 100;
+// })
+
+// console.log(arrCents);
+
+// // now without using the map method.
+
+// let newCents = [];
+
+// for (let i = 0; i < dollars.length; i++) {
+//     newCents.push(dollars[i] * 100);
+// }
+
+// console.log(newCents);
+
+
+/**OBJECTS - used to store multiple properties on one variable */
+
+let userFirstName = 'David';
+let userLastName = 'Bragg';
+let userDiscoredId = 'David Bragg #0001';
+let userSubscriptionStatus = 'VIP';
+
+
+let user = [
+    {
+    username: 'David',
+    email: 'david@frontendsimplified.com',
+    password: 'test123',
+    subscriptionStatus: 'VIP',
+    discordId: 'David Bragg#0001',
+    lessonsCompleted: [0, 1] // <- Used in FES to track lesson ID's that are done.
+    },
+    {
+    username: 'Mitri',
+    email: 'mitri@frontendsimplified.com',
+    password: 'mitri123',
+    subscriptionStatus: 'VIP',
+    discordId: 'Mitri#0001',
+    lessonsCompleted: [0, 1, 2, 3, 4] // <- Used in FES to track lesson ID's that are done.
+    }
+]
+
+function login(email, password) {
+    // loop through users and get the object with the one with the email we pass in.
+    for (let i = 0; i < user.length; i++) {
+        if (user[i].email === email) {
+            if (user[i].password === password) {
+                console.log('log the user in  - the details are correct');
+            }
+            else {
+                console.log('The password is incorrect - try again');
+            }
+            return;
+        }
+    }
+    console.log("Username not found - please try again.")
+}
+
+login('david@frontendsimplified.com', 'test123');
+
+login('doesnotexist@frontendsimplified.com', 'test123');
+
+
+// console.log(user.username);
+
+// console.log(user.lessonsCompleted);
+
+// // example, mapping the lessons with X2.
+
+// console.log(user.lessonsCompleted.map(element => element *2))
+
+/// Now we're using an array of objects instead of a single object.
+
+console.log(user[1].lessonsCompleted.map(element => element *2));  //<-aight. that's pretty cool.
+
+
+
+// Example: create a register function!
+
+/** 
+ * Create a register function that accepts:
+ * - username
+ * - email
+ * - password
+ * - subscriptionStatus
+ * - discordId
+ * - lessonsCompleted
  * 
- * @examples
- * ['A+', 'FAIL', 'B', 'FAIL'] -> ['A+', 'B']
- * ['FAIL', 'FAIL', 'FAIL'] -> []
+ * Inside your register function:
+ * 1. Create a user object
+ * 2. Push this user object onto the 'users' array
  */
 
-let grades = ['A+', 'FAIL', 'B', 'FAIL'];
 
-// let passingGrades = grades.filter(grade => {
-//     return grade !== 'FAIL';
-// }) <- only one line, so we can do this:
+let users = [{
+    username: 'tester',
+    email: 'tester',
+    password: 'tester',
+    subscriptionStatus: 'tester',
+    discordId: 'tester',
+    lessonsCompleted: ['tester'],
+}]
 
-let passingGrades = grades.filter(grade => grade !== 'FAIL');
+function register(username, email, password, subscriptionStatus, discordId, lessonsCompleted) {
+    let user = {username: username,
+        email: email,
+        password: password,
+        subscriptionStatus: subscriptionStatus,
+        discordId: discordId,
+        lessonsCompleted: lessonsCompleted
+    }
 
-console.log(`passingGrades: ${passingGrades}`); // <- A+, B 
+    users.push(user);
+}
+
+
+register('yourfellow', 'jfellow@bastiansolutions.com', 'password1', 'VIP', 'fellow#0002', [1, 3, 4, 6, 8]);
+
+for (let i = 0; i < users.length; i++) {
+    console.log(`user = ${users[i]}`);
+    console.log(`more specifically, the username: ${users[i].username}`)
+}
+
+// DONE up through arrays! Ready for DOM! stopping at 2hr 20 min.ish. Explanation at 2:17
