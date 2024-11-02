@@ -194,4 +194,61 @@ Do while loop
 
 // // console.log(convertCtoF(30));
 
+
 // -- UP THROUGH 1:34 in the Crash course. Ready for Arrays next.
+
+// /** ARRAYS */
+
+let item1 = 20;
+let item2 = 30;
+let item3 = 40;
+let item4 = 50;
+let item5 = 100;
+
+let arr = [20, 30, 40, 50, 100, '', true];
+
+console.log(arr[0]);
+
+arr.push(200);
+
+
+// SYNTAX OF A CALLBACK fUNCITON!!!!!!
+// arr.filter(() => {}) <-- this is a callback.
+
+let newArr = arr.filter((element) => { // iterates over element.
+    console.log(element); // prints out each element. (new line).
+}) //<- But will only return the elements that return true. COOL!
+
+console.log(newArr); // currently empty.
+
+
+let newArr2 = arr.filter((element) => {
+    return element > 50; // This is a truthy statement. So it will return when it happens.
+})
+
+console.log(`newArr2: ${newArr2}`); // <- 100, 200
+
+// if there's only one variable, you can remove the parens.
+let newArr3 = arr.filter(element => {
+    return element > 50;
+})
+
+
+
+/**
+ * Filter out all the 'FAIL' elements in an array.
+ * 
+ * @examples
+ * ['A+', 'FAIL', 'B', 'FAIL'] -> ['A+', 'B']
+ * ['FAIL', 'FAIL', 'FAIL'] -> []
+ */
+
+let grades = ['A+', 'FAIL', 'B', 'FAIL'];
+
+// let passingGrades = grades.filter(grade => {
+//     return grade !== 'FAIL';
+// }) <- only one line, so we can do this:
+
+let passingGrades = grades.filter(grade => grade !== 'FAIL');
+
+console.log(`passingGrades: ${passingGrades}`); // <- A+, B 
