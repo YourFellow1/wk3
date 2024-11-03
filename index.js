@@ -321,50 +321,50 @@ Do while loop
 
 /**OBJECTS - used to store multiple properties on one variable */
 
-let userFirstName = 'David';
-let userLastName = 'Bragg';
-let userDiscoredId = 'David Bragg #0001';
-let userSubscriptionStatus = 'VIP';
+// let userFirstName = 'David';
+// let userLastName = 'Bragg';
+// let userDiscoredId = 'David Bragg #0001';
+// let userSubscriptionStatus = 'VIP';
 
 
-let user = [
-    {
-    username: 'David',
-    email: 'david@frontendsimplified.com',
-    password: 'test123',
-    subscriptionStatus: 'VIP',
-    discordId: 'David Bragg#0001',
-    lessonsCompleted: [0, 1] // <- Used in FES to track lesson ID's that are done.
-    },
-    {
-    username: 'Mitri',
-    email: 'mitri@frontendsimplified.com',
-    password: 'mitri123',
-    subscriptionStatus: 'VIP',
-    discordId: 'Mitri#0001',
-    lessonsCompleted: [0, 1, 2, 3, 4] // <- Used in FES to track lesson ID's that are done.
-    }
-]
+// let user = [
+//     {
+//     username: 'David',
+//     email: 'david@frontendsimplified.com',
+//     password: 'test123',
+//     subscriptionStatus: 'VIP',
+//     discordId: 'David Bragg#0001',
+//     lessonsCompleted: [0, 1] // <- Used in FES to track lesson ID's that are done.
+//     },
+//     {
+//     username: 'Mitri',
+//     email: 'mitri@frontendsimplified.com',
+//     password: 'mitri123',
+//     subscriptionStatus: 'VIP',
+//     discordId: 'Mitri#0001',
+//     lessonsCompleted: [0, 1, 2, 3, 4] // <- Used in FES to track lesson ID's that are done.
+//     }
+// ]
 
-function login(email, password) {
-    // loop through users and get the object with the one with the email we pass in.
-    for (let i = 0; i < user.length; i++) {
-        if (user[i].email === email) {
-            if (user[i].password === password) {
-                console.log('log the user in  - the details are correct');
-            }
-            else {
-                console.log('The password is incorrect - try again');
-            }
-            return;
-        }
-    }
-    console.log("Username not found - please try again.")
-}
+// function login(email, password) {
+//     // loop through users and get the object with the one with the email we pass in.
+//     for (let i = 0; i < user.length; i++) {
+//         if (user[i].email === email) {
+//             if (user[i].password === password) {
+//                 console.log('log the user in  - the details are correct');
+//             }
+//             else {
+//                 console.log('The password is incorrect - try again');
+//             }
+//             return;
+//         }
+//     }
+//     console.log("Username not found - please try again.")
+// }
 
-login('david@frontendsimplified.com', 'test123');
+// login('david@frontendsimplified.com', 'test123');
 
-login('doesnotexist@frontendsimplified.com', 'test123');
+// login('doesnotexist@frontendsimplified.com', 'test123');
 
 
 // console.log(user.username);
@@ -377,54 +377,110 @@ login('doesnotexist@frontendsimplified.com', 'test123');
 
 /// Now we're using an array of objects instead of a single object.
 
-console.log(user[1].lessonsCompleted.map(element => element *2));  //<-aight. that's pretty cool.
+// console.log(user[1].lessonsCompleted.map(element => element *2));  //<-aight. that's pretty cool.
 
 
 
-// Example: create a register function!
+// // Example: create a register function!
 
-/** 
- * Create a register function that accepts:
- * - username
- * - email
- * - password
- * - subscriptionStatus
- * - discordId
- * - lessonsCompleted
- * 
- * Inside your register function:
- * 1. Create a user object
- * 2. Push this user object onto the 'users' array
- */
+// /** 
+//  * Create a register function that accepts:
+//  * - username
+//  * - email
+//  * - password
+//  * - subscriptionStatus
+//  * - discordId
+//  * - lessonsCompleted
+//  * 
+//  * Inside your register function:
+//  * 1. Create a user object
+//  * 2. Push this user object onto the 'users' array
+//  */
 
 
-let users = [{
-    username: 'tester',
-    email: 'tester',
-    password: 'tester',
-    subscriptionStatus: 'tester',
-    discordId: 'tester',
-    lessonsCompleted: ['tester'],
-}]
+// let users = [{
+//     username: 'tester',
+//     email: 'tester',
+//     password: 'tester',
+//     subscriptionStatus: 'tester',
+//     discordId: 'tester',
+//     lessonsCompleted: ['tester'],
+// }]
 
-function register(username, email, password, subscriptionStatus, discordId, lessonsCompleted) {
-    let user = {username: username,
-        email: email,
-        password: password,
-        subscriptionStatus: subscriptionStatus,
-        discordId: discordId,
-        lessonsCompleted: lessonsCompleted
+// function register(user) {
+
+
+//     users.push(user);
+// }
+
+
+// // register('yourfellow', 'jfellow@bastiansolutions.com', 'password1', 'VIP', 'fellow#0002', [1, 3, 4, 6, 8]);
+// //^^^ bad code example. . interesting. This is why I'm taking the course!
+
+// register({
+//     username: "momfellow",
+//     email: "meganfellow@email.com",
+//     password: "password2",
+//     subscriptionStatus: "momVIP",
+//     discordId: "momfellow#0003",
+//     lessonsCompleted: [1, 3, 4, 6, 8, 9, 10, 11]
+// });
+
+// //^^^ better code example. - but this loaded the object as a single element in the array. Username.
+// // Why did it work in the course? <- It didn't work. keep watching.
+
+// // Change the function from 6 arguments to an object with 6 properties... and then pass that object in..
+
+
+// for (let i = 0; i < users.length; i++) {
+//     console.log(`user = ${users[i]}`);
+//     console.log(`more specifically, the username: ${users[i].username}`)
+// }
+
+// console.log(users);
+
+// // DONE up through arrays! Ready for DOM! stopping at 2hr 20 min.ish. Explanation at 2:17
+
+/** DOM - Document Objcet Model */
+
+// First way to accessan element
+console.log(document.querySelector('#title'));
+//Most common!! can access class. or element.
+console.log(document.querySelector('.title')); //<- this is the best way to access an element with a class.
+console.log(document.querySelector('h1'));  //<- this is the best way to access an element with a tag.
+// what about non-labeled? does it search text?
+console.log(document.querySelector('Joseph')); //<- nope. returns null.
+
+
+
+// Second way to access an element - only works if there's an Id.
+console.log(document.getElementById('title')); //<-- this is best practice. with Id
+
+document.querySelector('.title').innerHTML = "Hello, World!"; //<- changes the text of the element.
+
+// Because the js tag is "defer", the script runs after the html is loaded. So it can access the elements.
+// It also loads the changed text of the title to Hello, World!, so line 449 prints "Hello, World!" and not the native text.
+// This raises a lot of scope questions.
+
+// Change CSS.
+document.querySelector(".title").style.fontSize = "30px"; //<- changes the color of the text to red.
+
+function changeTitleToRed() {
+    if (document.querySelector(".title").style.color === "red") {
+        document.querySelector(".title").style.color = "black";
+        return;
     }
-
-    users.push(user);
+    document.querySelector(".title").style.color = "red";
 }
 
+// Played around with the color differences. And I'm getting more scope questions.
+// It's good practice, and I need to unload it a littl more.
 
-register('yourfellow', 'jfellow@bastiansolutions.com', 'password1', 'VIP', 'fellow#0002', [1, 3, 4, 6, 8]);
-
-for (let i = 0; i < users.length; i++) {
-    console.log(`user = ${users[i]}`);
-    console.log(`more specifically, the username: ${users[i].username}`)
+function toggleDarkMode() {
+    document.querySelector('body').classList.toggle('dark-theme');
+    if(document.querySelector('.title').style.color === 'red') {
+        document.querySelector('.title').style.color = 'black';
+        return;
+    }
+    document.querySelector('.title').style.color = 'red';
 }
-
-// DONE up through arrays! Ready for DOM! stopping at 2hr 20 min.ish. Explanation at 2:17

@@ -1,4 +1,13 @@
 * {
     box-sizing: border-box;
-    font-size: 20px;
+}
+
+.dark-theme {
+    background-color: black;
+}
+
+
+.dark-theme * {
+    
+    color: white
 }
