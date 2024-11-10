@@ -77,7 +77,7 @@ Do while loop
 //     counter++; // <-- forgot this the first time, and of course... 'broke' the browser.
 //  }
 
- // for loop
+// for loop
 
 //  for (let i = 0; i <= 100; i+=2) {
 //     console.log(`Counting by twos:-- ${i} --:`)
@@ -443,44 +443,242 @@ Do while loop
 
 /** DOM - Document Objcet Model */
 
-// First way to accessan element
-console.log(document.querySelector('#title'));
-//Most common!! can access class. or element.
-console.log(document.querySelector('.title')); //<- this is the best way to access an element with a class.
-console.log(document.querySelector('h1'));  //<- this is the best way to access an element with a tag.
-// what about non-labeled? does it search text?
-console.log(document.querySelector('Joseph')); //<- nope. returns null.
+// // First way to accessan element
+// console.log(document.querySelector('#title'));
+// //Most common!! can access class. or element.
+// console.log(document.querySelector('.title')); //<- this is the best way to access an element with a class.
+// console.log(document.querySelector('h1'));  //<- this is the best way to access an element with a tag.
+// // what about non-labeled? does it search text?
+// console.log(document.querySelector('Joseph')); //<- nope. returns null.
 
 
 
-// Second way to access an element - only works if there's an Id.
-console.log(document.getElementById('title')); //<-- this is best practice. with Id
+// // Second way to access an element - only works if there's an Id.
+// console.log(document.getElementById('title')); //<-- this is best practice. with Id
 
-document.querySelector('.title').innerHTML = "Hello, World!"; //<- changes the text of the element.
+// document.querySelector('.title').innerHTML = "Hello, World!"; //<- changes the text of the element.
 
-// Because the js tag is "defer", the script runs after the html is loaded. So it can access the elements.
-// It also loads the changed text of the title to Hello, World!, so line 449 prints "Hello, World!" and not the native text.
-// This raises a lot of scope questions.
+// // Because the js tag is "defer", the script runs after the html is loaded. So it can access the elements.
+// // It also loads the changed text of the title to Hello, World!, so line 449 prints "Hello, World!" and not the native text.
+// // This raises a lot of scope questions.
 
-// Change CSS.
-document.querySelector(".title").style.fontSize = "30px"; //<- changes the color of the text to red.
+// // Change CSS.
+// document.querySelector(".title").style.fontSize = "30px"; //<- changes the color of the text to red.
 
-function changeTitleToRed() {
-    if (document.querySelector(".title").style.color === "red") {
-        document.querySelector(".title").style.color = "black";
-        return;
-    }
-    document.querySelector(".title").style.color = "red";
+// function changeTitleToRed() {
+//     if (document.querySelector(".title").style.color === "red") {
+//         document.querySelector(".title").style.color = "black";
+//         return;
+//     }
+//     document.querySelector(".title").style.color = "red";
+// }
+
+// // Played around with the color differences. And I'm getting more scope questions.
+// // It's good practice, and I need to unload it a littl more.
+
+// function toggleDarkMode() {
+//     document.querySelector('body').classList.toggle('dark-theme');
+//     if (document.querySelector('.title').style.color === 'red') {
+//         document.querySelector('.title').style.color = 'black';
+//         return;
+//     }
+//     document.querySelector('.title').style.color = 'red';
+// }
+
+// /**
+//  * PROMISES! Toughest thing in JS?
+//  */
+
+// // fetch("https://jsonplaceholder.typicode.com/users/1"); //<- this is a promise. It's a promise to get the data.
+
+// const emailRef = document.querySelector(".email");
+// console.log(emailRef);
+// // 1. Then
+// // fetch("https://jsonplaceholder.typicode.com/users/1").then(response => {
+// //     // console.log(response.json()); // response.json() is also a promise. So we need to chain another .then() to get the data.
+// //     response.json().then(data => {
+// //         emailRef.innerHTML = data.email;
+// //     })
+// // }) <-NEsting .then is not best practice.
+
+// fetch("https://jsonplaceholder.typicode.com/users/1")
+//     .then((response) => {
+//         return response.json();
+//     })
+//     .then((data) => {
+//         console.log(data);
+//         emailRef.innerHTML = data.email
+//     });
+
+
+
+
+
+// 2. Async/Await <- David's favorite and best practice. UNDERSTAND BOTH!
+
+// async function main() {
+//     const response = await fetch("https://jsonplaceholder.typicode.com/users/1")
+//     const data = await response.json();
+//     console.log(data);
+//     emailRef.innerHTML = data.email;
+// }
+
+// main();
+
+function sumOfTwoNumbers(num1, num2) {
+    return num1 + num2;
 }
 
-// Played around with the color differences. And I'm getting more scope questions.
-// It's good practice, and I need to unload it a littl more.
+console.log(sumOfTwoNumbers(15, 30));
 
-function toggleDarkMode() {
-    document.querySelector('body').classList.toggle('dark-theme');
-    if(document.querySelector('.title').style.color === 'red') {
-        document.querySelector('.title').style.color = 'black';
-        return;
-    }
-    document.querySelector('.title').style.color = 'red';
+// convert hours into seconds.
+
+function hoursIntoSeconds(hours) {
+    return hours * 3600;
 }
+
+console.log(hoursIntoSeconds(2));
+
+function calcPerimeter(length, width) {
+    return (length + width) * 2;
+}
+
+console.log(calcPerimeter(6, 7));
+
+// Q4
+
+function calcTriangleArea(base, height) {
+    return base * height / 2;
+}
+
+console.log(calcTriangleArea(20, 30));
+
+function appendFrontend(str) {
+    return "Frontend " + str;
+}
+
+console.log(appendFrontend("Simplified"));
+
+function sumGreaterThan100(num1, num2) {
+    return num1 + num2 > 100;
+    // I never think to just return a boolean! I would have done an if statment.
+}
+
+console.log(sumGreaterThan100(50, 60));
+
+
+// less than or equal to zero? return boolean.
+
+function lessThanOrEqualToZero(num) {
+    return num <= 0;
+}
+
+console.log(lessThanOrEqualToZero(0));
+console.log(lessThanOrEqualToZero(10));
+
+
+// Q8. Opposite Boolean
+function oppositeBoolean(bool) {
+    return !bool;
+}
+
+console.log(oppositeBoolean(true));
+
+// Q9. Is not the number 0.
+
+function isNotZero(num) {
+    return num !== 0;
+}
+
+console.log(isNotZero(0));
+console.log(isNotZero(7));
+console.log(isNotZero(null));
+
+// q10. Calculate the remainder.
+
+function calcRemainder(num1, num2) {
+    return num1 % num2;
+}
+
+console.log(calcRemainder(10, 3));
+
+// q11. Is the number odd?
+
+function isOdd(num) {
+    return num % 2 !== 0;
+}
+
+console.log(isOdd(10));
+console.log(isOdd(11));
+
+// q12. If the number is even return 1, if odd return -1.
+function booleanIntegers(num) {
+    return num % 2 === 0 ? 1 : -1;
+}
+
+console.log(booleanIntegers(10));
+console.log(booleanIntegers(15));
+
+// Q13. Check if a user is logged in and subscribed.
+
+function isLoggedInAndSubscribed(isLoggedIn, isSubscribed) {
+    // if (isLoggedIn === 'LOGGED_IN' && isSubscribed === 'SUBSCRIBED') {
+    //     return true;
+    // }
+    // return false;
+    return isLoggedIn === 'LOGGED_IN' && isSubscribed === 'SUBSCRIBED';
+}
+
+console.log(isLoggedInAndSubscribed('LOGGED_IN', 'SUBSCRIBED'));
+
+/**MEDIUM QUESTIONS */
+
+// Q1. Given two values, return the first on if it is falsy, otherwise return the second one.
+
+function filterOutFalsy(num1, num2) {
+    return !num1 ? num1 : num2;
+}
+
+console.log(filterOutFalsy(0, 10));
+console.log(filterOutFalsy(true, 10));
+
+// Q2. Return thelength of any given array.
+
+function arrLength(arr) {
+    return arr.length;
+}
+
+console.log(arrLength([1, 2, 3, 4, 5]));
+
+// Q3. Return the last element of the array.
+
+function lastElement(arr) {
+    return arr[arr.length - 1];
+}
+
+console.log(lastElement([1, 2, 3, 4, 5]));
+
+// Q4. Find the sum of an array
+
+function sumOfArray(arr) {
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++) {
+        sum += arr[i];
+    }
+    return sum;
+}
+
+console.log(sumOfArray([1, 2, 3, 4, 5]));
+
+// Q5. Add up numbers from a single number.
+// ex input 4, it adds 1, 2, 3, 4. = 10.
+
+function progressiveSum(num) {
+    let sum = 0;
+    for (let i = 1; i <= num; i++) {
+        sum += i;
+    }
+    return sum;
+}
+
+console.log(progressiveSum(25));
