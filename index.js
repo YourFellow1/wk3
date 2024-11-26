@@ -525,160 +525,340 @@ Do while loop
 
 // main();
 
-function sumOfTwoNumbers(num1, num2) {
-    return num1 + num2;
+// function sumOfTwoNumbers(num1, num2) {
+//     return num1 + num2;
+// }
+
+// console.log(sumOfTwoNumbers(15, 30));
+
+// // convert hours into seconds.
+
+// function hoursIntoSeconds(hours) {
+//     return hours * 3600;
+// }
+
+// console.log(hoursIntoSeconds(2));
+
+// function calcPerimeter(length, width) {
+//     return (length + width) * 2;
+// }
+
+// console.log(calcPerimeter(6, 7));
+
+// // Q4
+
+// function calcTriangleArea(base, height) {
+//     return base * height / 2;
+// }
+
+// console.log(calcTriangleArea(20, 30));
+
+// function appendFrontend(str) {
+//     return "Frontend " + str;
+// }
+
+// console.log(appendFrontend("Simplified"));
+
+// function sumGreaterThan100(num1, num2) {
+//     return num1 + num2 > 100;
+//     // I never think to just return a boolean! I would have done an if statment.
+// }
+
+// console.log(sumGreaterThan100(50, 60));
+
+
+// // less than or equal to zero? return boolean.
+
+// function lessThanOrEqualToZero(num) {
+//     return num <= 0;
+// }
+
+// console.log(lessThanOrEqualToZero(0));
+// console.log(lessThanOrEqualToZero(10));
+
+
+// // Q8. Opposite Boolean
+// function oppositeBoolean(bool) {
+//     return !bool;
+// }
+
+// console.log(oppositeBoolean(true));
+
+// // Q9. Is not the number 0.
+
+// function isNotZero(num) {
+//     return num !== 0;
+// }
+
+// console.log(isNotZero(0));
+// console.log(isNotZero(7));
+// console.log(isNotZero(null));
+
+// // q10. Calculate the remainder.
+
+// function calcRemainder(num1, num2) {
+//     return num1 % num2;
+// }
+
+// console.log(calcRemainder(10, 3));
+
+// // q11. Is the number odd?
+
+// function isOdd(num) {
+//     return num % 2 !== 0;
+// }
+
+// console.log(isOdd(10));
+// console.log(isOdd(11));
+
+// // q12. If the number is even return 1, if odd return -1.
+// function booleanIntegers(num) {
+//     return num % 2 === 0 ? 1 : -1;
+// }
+
+// console.log(booleanIntegers(10));
+// console.log(booleanIntegers(15));
+
+// // Q13. Check if a user is logged in and subscribed.
+
+// function isLoggedInAndSubscribed(isLoggedIn, isSubscribed) {
+//     // if (isLoggedIn === 'LOGGED_IN' && isSubscribed === 'SUBSCRIBED') {
+//     //     return true;
+//     // }
+//     // return false;
+//     return isLoggedIn === 'LOGGED_IN' && isSubscribed === 'SUBSCRIBED';
+// }
+
+// console.log(isLoggedInAndSubscribed('LOGGED_IN', 'SUBSCRIBED'));
+
+// /**MEDIUM QUESTIONS */
+
+// // Q1. Given two values, return the first on if it is falsy, otherwise return the second one.
+
+// function filterOutFalsy(num1, num2) {
+//     return !num1 ? num1 : num2;
+// }
+
+// console.log(filterOutFalsy(0, 10));
+// console.log(filterOutFalsy(true, 10));
+
+// // Q2. Return thelength of any given array.
+
+// function arrLength(arr) {
+//     return arr.length;
+// }
+
+// console.log(arrLength([1, 2, 3, 4, 5]));
+
+// // Q3. Return the last element of the array.
+
+// function lastElement(arr) {
+//     return arr[arr.length - 1];
+// }
+
+// console.log(lastElement([1, 2, 3, 4, 5]));
+
+// // Q4. Find the sum of an array
+
+// function sumOfArray(arr) {
+//     let sum = 0;
+//     for (let i = 0; i < arr.length; i++) {
+//         sum += arr[i];
+//     }
+//     return sum;
+// }
+
+// console.log(sumOfArray([1, 2, 3, 4, 5]));
+
+// // Q5. Add up numbers from a single number.
+// // ex input 4, it adds 1, 2, 3, 4. = 10.
+
+// function progressiveSum(num) {
+//     let sum = 0;
+//     for (let i = 1; i <= num; i++) {
+//         sum += i;
+//     }
+//     return sum;
+// }
+
+// console.log(progressiveSum(25));
+
+// /** BREAK! stopping medium video at 12:34 */
+
+// // Q6. Calculate the time
+// // Given a number in seconds, return this number in mm:ss format.
+
+
+// function calcTime(sec) {
+//     let minutes = Math.floor(sec / 60);
+//     let seconds = sec % 60;
+
+//     console.log(`${minutes}:${seconds.toString().padStart(2, '0')}`);
+// }
+
+// calcTime(66); // -> "01:06";
+// calcTime(50); // -> "00:50";
+// calcTime(300); // -> "05:00";
+
+// //nvm wanted to look at the advanced questions.
+// // q1. show rating. star = full, '.' = half rating.
+
+// function showRating(rating) {
+//     const star = '*';
+//     const halfStar = '.';
+//     let answer = '';
+
+//     // loop through whole numbers and separate after it equals 1.
+//     while (rating >= 1) {
+//         answer += star;
+//         rating--;
+//     }
+//     if (rating === 0.5) {
+//         answer += halfStar;
+//     }
+
+//     console.log(answer);
+// }
+
+
+// showRating(4.5);
+
+
+// ///// Back to medium.
+
+// // Q7. Find the largest number in an array.
+// // Given an array of numbers, return the largest number of that array.
+
+
+// function getMax(list) {
+//     let max = list[0];
+//     for (let i = 1; i < list.length; i++) {
+//         if (list[i] > max) {
+//             max = list[i];
+//         }
+//     }
+//     console.log(max);
+// }
+// getMax([5, 100, 0]); // -> 100
+// getMax([12, 10, -20]); // -> 112
+// getMax([-300, -100, -200]); // -> -100
+
+// // Q8. Reverse a string
+// // Given a string, return the reverse of that string.
+
+// function reverseString(num) {
+//     let reversed = '';
+//     for (let i = num.length - 1; i >= 0; i--) {
+//         reversed += num[i];
+//     }
+//     console.log(reversed);
+// }
+
+// //ex.
+// reverseString('abc'); // -> 'cba'
+// reverseString('hello'); // -> 'olleh'
+// reverseString('This is cool'); // -> 'looc si sihT'
+
+
+// Q9. Turn Every element in an array into 0.
+
+// Solution 1: For Loop
+// Solution 2: Array 'fill'
+// Solution 3: Array 'map'
+
+// Solution 1: For Loop
+// function convertToZeros(arr) {
+//     for (let i = 0; i < arr.length; i++) {
+//         arr[i] = 0;
+//     }
+//     console.log(arr);
+// }
+
+// // Solution 2: Array 'fill'
+// function convertToZeros(arr) {
+//     console.log(arr.fill(0));
+// }
+
+// // Solution 3: Array 'map'
+// function convertToZeros(arr) {
+//     console.log(arr.map(() => 0));
+// }
+
+// //examples:
+
+// convertToZeros([5, 100, 0]); // -> [0, 0, 0]
+// convertToZeros([12, 10, -20]); // -> [0, 0, 0]
+// convertToZeros([-300, -100, -200]); // -> [0, 0, 0]
+// convertToZeros([1, 2, 3, 4, 5]); // -> [0, 0, 0, 0, 0]
+
+//Q10. Filter out all the apples.
+// Given an array of fruits, if it is an apple remove it from the array.
+// solution 1: for loop
+
+// function removeApples(arr) {
+//     for (let i = 0; i < arr.length; i++) {
+//         if (arr[i] === 'apple') {
+//             arr.splice(i, 1);
+//             i--;
+//         }
+//     }
+//     console.log(arr);
+// }
+// // Interesting note! You can use splice to add elements as well. It's a very versatile method.
+// // Exmample:
+// // let arr = [1, 2, 3, 4, 5];
+// // arr.splice(2, 0, 100);
+// // console.log(arr); // -> [1, 2, 100, 3, 4, 5]
+
+// // solution 2: array filter
+// function removeApples(arr) {
+//     console.log(arr.filter(fruit => fruit !== 'apple'));
+// }
+
+
+// //examples
+// removeApples(['apple', 'banana', 'apple', 'orange']); // -> ['banana', 'orange']
+// removeApples(['apple', 'apple', 'apple']); // -> []
+// removeApples(['banana', 'orange']); // -> ['banana', 'orange']
+// removeApples(['banana', 'apple', 'orange']); // -> ['banana', 'orange']
+
+
+// // Q11. Filter out all the falsy values
+// // Given an array, remove all falsy values from the array. and only return the truthy values.
+// // Solution 1: For Loop
+// function filterOutFalsy(arr) {
+//     let newArr = [];
+//     for (let i = 0; i < arr.length; i++) {
+//         if (arr[i]) {
+//             newArr.push(arr[i]);
+//         }
+//     }
+//     console.log(newArr);
+// }
+
+// // // Solution 2: Array 'filter'
+// function filterOutFalsy(arr) {
+//     console.log(arr.filter(elem => !elem));
+// } //^^ and an opposite.
+
+// // Honorable mention: 'console.log(arr.filger(Boolean));' <- this is a cool way to do it. It's a truthy statement.
+
+
+// // examples
+
+// filterOutFalsy(["", [], 0, null, undefined, "0"]);
+// filterOutFalsy(['Tomato', 'Orange', 'Banana', false]);
+// filterOutFalsy(['Banana', 'Orange', 'Apple', true, 0, '']); // -> ['Banana', 'Orange', 'Apple', true]
+
+// Q12. Truthy to ture, Falsy to false
+// Given an array of truthy and falsy values, return the same array of elements into its boolean value.
+
+function convertToBoolean(arr) {
+    console.log(arr.map(elem => !!elem));
 }
 
-console.log(sumOfTwoNumbers(15, 30));
+//example:
+convertToBoolean([500, 0, "David", "", []]);
+convertToBoolean([true, false, 0, 1, "David", ""]);
 
-// convert hours into seconds.
-
-function hoursIntoSeconds(hours) {
-    return hours * 3600;
-}
-
-console.log(hoursIntoSeconds(2));
-
-function calcPerimeter(length, width) {
-    return (length + width) * 2;
-}
-
-console.log(calcPerimeter(6, 7));
-
-// Q4
-
-function calcTriangleArea(base, height) {
-    return base * height / 2;
-}
-
-console.log(calcTriangleArea(20, 30));
-
-function appendFrontend(str) {
-    return "Frontend " + str;
-}
-
-console.log(appendFrontend("Simplified"));
-
-function sumGreaterThan100(num1, num2) {
-    return num1 + num2 > 100;
-    // I never think to just return a boolean! I would have done an if statment.
-}
-
-console.log(sumGreaterThan100(50, 60));
-
-
-// less than or equal to zero? return boolean.
-
-function lessThanOrEqualToZero(num) {
-    return num <= 0;
-}
-
-console.log(lessThanOrEqualToZero(0));
-console.log(lessThanOrEqualToZero(10));
-
-
-// Q8. Opposite Boolean
-function oppositeBoolean(bool) {
-    return !bool;
-}
-
-console.log(oppositeBoolean(true));
-
-// Q9. Is not the number 0.
-
-function isNotZero(num) {
-    return num !== 0;
-}
-
-console.log(isNotZero(0));
-console.log(isNotZero(7));
-console.log(isNotZero(null));
-
-// q10. Calculate the remainder.
-
-function calcRemainder(num1, num2) {
-    return num1 % num2;
-}
-
-console.log(calcRemainder(10, 3));
-
-// q11. Is the number odd?
-
-function isOdd(num) {
-    return num % 2 !== 0;
-}
-
-console.log(isOdd(10));
-console.log(isOdd(11));
-
-// q12. If the number is even return 1, if odd return -1.
-function booleanIntegers(num) {
-    return num % 2 === 0 ? 1 : -1;
-}
-
-console.log(booleanIntegers(10));
-console.log(booleanIntegers(15));
-
-// Q13. Check if a user is logged in and subscribed.
-
-function isLoggedInAndSubscribed(isLoggedIn, isSubscribed) {
-    // if (isLoggedIn === 'LOGGED_IN' && isSubscribed === 'SUBSCRIBED') {
-    //     return true;
-    // }
-    // return false;
-    return isLoggedIn === 'LOGGED_IN' && isSubscribed === 'SUBSCRIBED';
-}
-
-console.log(isLoggedInAndSubscribed('LOGGED_IN', 'SUBSCRIBED'));
-
-/**MEDIUM QUESTIONS */
-
-// Q1. Given two values, return the first on if it is falsy, otherwise return the second one.
-
-function filterOutFalsy(num1, num2) {
-    return !num1 ? num1 : num2;
-}
-
-console.log(filterOutFalsy(0, 10));
-console.log(filterOutFalsy(true, 10));
-
-// Q2. Return thelength of any given array.
-
-function arrLength(arr) {
-    return arr.length;
-}
-
-console.log(arrLength([1, 2, 3, 4, 5]));
-
-// Q3. Return the last element of the array.
-
-function lastElement(arr) {
-    return arr[arr.length - 1];
-}
-
-console.log(lastElement([1, 2, 3, 4, 5]));
-
-// Q4. Find the sum of an array
-
-function sumOfArray(arr) {
-    let sum = 0;
-    for (let i = 0; i < arr.length; i++) {
-        sum += arr[i];
-    }
-    return sum;
-}
-
-console.log(sumOfArray([1, 2, 3, 4, 5]));
-
-// Q5. Add up numbers from a single number.
-// ex input 4, it adds 1, 2, 3, 4. = 10.
-
-function progressiveSum(num) {
-    let sum = 0;
-    for (let i = 1; i <= num; i++) {
-        sum += i;
-    }
-    return sum;
-}
-
-console.log(progressiveSum(25));
+// DONE WITH MEDIUM. ON TO ADVANCED.
